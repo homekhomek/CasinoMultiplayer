@@ -4,12 +4,13 @@ socket.emit('Joined',null);
 
 var loginPage = document.getElementById("Login"),
     gamePage = document.getElementById("Game"),
-    myplayer;
-
-start();
+    players = [],
+    pot = {},
+    potTotal = 0;
+    myPlayer = {};
 
 function start () {
- var name = "asdf"//document.getElementById("name").value;
+ var name = document.getElementById("name").value;
  socket.emit('Starting',name);
 }
 
@@ -20,6 +21,21 @@ socket.on("You'reIn", function(player){
   myplayer = player;
 
 });
+
+socket.on('Current', function(data){
+  pot = data.pot;
+  potTotal = data.total;
+  myPlayer = data.myPlayer;
+  players = data.players;
+});
+
+function betMore () {
+  socket.emit('BetMore',"");
+}
+
+function betLess () {
+  socket.emit('BetMore',"");
+}
 
 socket.on('Rip', function(cid){
   for(var i in players) {

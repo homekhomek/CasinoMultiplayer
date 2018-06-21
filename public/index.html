@@ -22,11 +22,11 @@
       <div id="odds"> 
         <p>Odds</p>
         <div id="winodds">
-          <p id="bigwin">51.7%</p>
+          <p id="bigwin">0%</p>
           <p id="littlewin">You win!</p>
         </div>
         <div id="loseodds">
-          <p id="biglose">48.3%</p>
+          <p id="biglose">0%</p>
           <p id="littlelose">You lose!</p>
         </div>
       </div>
@@ -44,14 +44,15 @@
     </div>
     <div id="bets">
       <section>
-        <button id="addamt">+$100</button>
+        <button id="addamt" onclick="betMore();">+$100</button>
         <p>Put in pot</p>
       </section>
       <section>
-        <button>-$100</button>
+        <button id="subamt" onclick="betLess();">-$100</button>
         <p>Take out of pot</p>
       </section>
-      <p id="curramount">Current amount in pot: $1700</p>
+      <p id="curramount">Current amount in pot: $0</p>
+      <p id="ammountyouhave">You have: $0</p>
     </div>
     <div id="players">
       <p>People in pot</p>

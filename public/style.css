@@ -239,15 +239,38 @@ margin-left: -50em;
   background-color: #ddd;
 }
 
+#ammountyouhave{
+  width: 80%;
+  display: block;
+  margin: 30px auto;
+  position: relative;
+  text-align: center;
+  background-color: #ddd;
+}
+
 #bets section *{
   display: inline;
-  background-color: #ddd;
   margin: 30px;
 }
 
-#bets button {
+#bets section p{
   background-color: #ddd;
-  border: 3px solid gray;
+}
+
+#addamt {
+  background-color: #00c12d;
+  border: 3px solid #00C12C;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+}
+
+#subamt {
+  background-color: #C03232;
+  border: 3px solid #C03232;
+  color: white;
   border-radius: 5px;
   padding: 10px 20px;
   font-family: 'Righteous', cursive;
