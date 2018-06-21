@@ -1,119 +1,255 @@
 body, h1, h2, h3, h4, h5, h6, p {
-    overflow:hidden;
-    display: block;
-    margin:0;
-    padding:0;
+  overflow:hidden;
+  display: block;
+  margin:0;
+  padding:0;
+  font-family: 'Righteous', cursive;
+  color: #000;
 
-    color: #000;
-
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .Page {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 #Game {
-    display:none;
-}
-
-#odds {
-    display: inline-block;
-    width: 25%;
-    height: 500px;
-    background-color: #ddd;
-}
-
-#colors {
-    display: inline-block;
-    width: 15%;
-    height: 500px;
-    background-color: #ddd;
-    text-align: center;
-}
-
-.color {
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin-top: 10px;
-    margin-left: calc(50% - 21px);
-    border: 3px solid white;
-    border-radius: 6px;
+  display:none;
+  margin-top: 10px;
 }
 
 #c1 {
-    background-color: #ddd;
+  background-color: #912556;
 }
 
 #c2 {
-    background-color: #B94AB9;
+  background-color: #B94AB9;
 }
 
 #c3 {
-    background-color: #C03232;
+  background-color: #C03232;
 }
 
 #c4 {
-    background-color: #4452B9;
+  background-color: #4452B9;
 }
 
 #c5 {
-    background-color: #ddd;
+  background-color: #00a7c1;
 }
 
 #c6 {
-    background-color: #ddd;
+  background-color: #00c12d;
 }
 
 #c7 {
-    background-color: #ddd;
+  background-color: #a6b200;
 }
 
 #c8 {
-    background-color: #ddd;
+  background-color: #efefef;
 }
 
 #centerLine {
-    position: absolute;
-    float: left;
-    margin-left: calc(50% - 20px);
-    height: 75px;
-    width: 3px;
-    border: 1px solid #000;
-    border-radius: 25px;
-    background-color: #fff;
-  }
+  position: absolute;
+  float: left;
+  margin-left: calc(50% - 20px);
+  height: 75px;
+  width: 3px;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  background-color: #fff;
+}
 
 .spinItem {
-    position: relative;
-    z-index: -10;
-    height: 10em;
-    width: 9.95em;
-    display: inline-block;
-    background-color: transparent;
-    line-height: 9em;
-    text-align: center;
-    border-left: .05em solid rgba(0, 0, 0, .5)
-  }
-  
-  .spinItem:first-child {
-    margin-left: -50em;
-  }
-  
-  #spinner {
-    z-index: -100;
-    height: 75px;
-    font-size: 100%;
-    padding-left: 50%;
-    margin-left: 5%;
-    width: 40%;
-    white-space: nowrap;
-    overflow: hidden;
-    border-radius: 9px;
-    -webkit-box-shadow: inset 0px 0px 20px 6px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px 0px 20px 6px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 0px 20px 6px rgba(0,0,0,0.75);
-  }
+  position: relative;
+  z-index: -10;
+  height: 10em;
+  width: 9.95em;
+  display: inline-block;
+  background-color: transparent;
+  line-height: 9em;
+  text-align: center;
+  border-left: .05em solid rgba(0, 0, 0, .5)
+}
+
+.spinItem:first-child {
+margin-left: -50em;
+}
+
+#spinner {
+  z-index: -100;
+  height: 75px;
+  font-size: 100%;
+  padding-left: 50%;
+  margin-left: 5%;
+  width: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px 0px 15px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 15px 3px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 15px 3px rgba(0,0,0,0.75);
+}
+#cnt {
+  margin: 10px;
+  white-space: nowrap;
+}
+
+#odds{ 
+  width: 25%;
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #ddd;
+  height: 600px;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+#colors{
+  width: 20%;
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #ddd;
+  height: 600px;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+#colors p {
+  color: black;
+  margin: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #ddd;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.color {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid gray;
+  border-radius: 5px;
+  position: relative;
+  margin: 10px auto;
+}
+
+#bets {
+  width: 25%;
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #ddd;
+  height: 600px;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+#players {
+  width: calc(100% - 70% - 95px);
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #ddd;
+  height: 600px;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+#players p {
+  text-transform: uppercase;
+  background-color: #ddd;
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#players table {
+  width: 80%;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+
+#players table tbody {
+  width: 100%;
+  display: block;
+}
+
+#players table tbody tr {
+  width: 100%;
+  display: block;
+}
+
+#players table tbody tr td {
+  width: calc(100%/3);
+  padding: 10px 0;
+  text-align: center;
+  display: inline-table;
+}
+
+#winodds {
+  width: 70%;
+  display: block;
+  position: relative;
+  margin: 10px auto;
+  border: 3px solid gray;
+  border-radius: 5px;
+}
+
+#loseodds {
+  width: 50%;
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  border: 3px solid gray;
+  border-radius: 5px;
+}
+
+#odds p {
+  color: black;
+  margin: 0;
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background-color: #ddd;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+#winodds p {
+  padding: 10px;
+  width: calc(100% - 20px);
+}
+
+#bigwin, #biglose {
+  font-size: 40px;
+}
+
+#curramount{
+  width: 80%;
+  display: block;
+  margin: 30px auto;
+  position: relative;
+  text-align: center;
+  background-color: #ddd;
+}
+
+#bets section *{
+  display: inline;
+  background-color: #ddd;
+  margin: 30px;
+}
+
+#bets button {
+  background-color: #ddd;
+  border: 3px solid gray;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+}

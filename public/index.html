@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>...</title>
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 </head>
@@ -12,25 +13,69 @@
     <button id="go" onclick="start()"> Start </button>
   </div>
 
-  <div id="Game" class="Page">
+  <main id="Game" class="Page">
     <div id="centerLine"></div>
     <div id="spinner">
 
     </div>
-    <div id="odds"> 
+    <section id="cnt">
+      <div id="odds"> 
+        <p>Odds</p>
+        <div id="winodds">
+          <p id="bigwin">51.7%</p>
+          <p id="littlewin">You win!</p>
+        </div>
+        <div id="loseodds">
+          <p id="biglose">48.3%</p>
+          <p id="littlelose">You lose!</p>
+        </div>
+      </div>
+      <div id="colors">
+        <p>Select a color</p>
+        <div id="c1" class="color"></div>
+        <div id="c2" class="color"></div>
+        <div id="c3" class="color"></div>
+        <div id="c4" class="color"></div>
+        <div id="c5" class="color"></div>
+        <div id="c6" class="color"></div>
+        <div id="c7" class="color"></div>
+        <div id="c8" class="color"></div>
+      </div>
     </div>
-    <div id="colors"> 
-      <div id="c1" class="color"></div>
-      <div id="c2" class="color"></div>
-      <div id="c3" class="color"></div>
-      <div id="c4" class="color"></div>
-      <div id="c5" class="color"></div>
-      <div id="c6" class="color"></div>
-      <div id="c7" class="color"></div>
-      <div id="c8" class="color"></div>
+    <div id="bets">
+      <section>
+        <button id="addamt">+$100</button>
+        <p>Put in pot</p>
+      </section>
+      <section>
+        <button>-$100</button>
+        <p>Take out of pot</p>
+      </section>
+      <p id="curramount">Current amount in pot: $1700</p>
     </div>
-
-  </div>
+    <div id="players">
+      <p>People in pot</p>
+      <table>
+        <tbody>
+          <tr>
+            <td>Brennan</td>
+            <td>$1700</td>
+            <td>51.7%</td>
+          </tr>
+          <tr>
+            <td>Payton</td>
+            <td>$300</td>
+            <td>22.4%</td>
+          </tr>
+          <tr>
+            <td>Brady</td>
+            <td>$100</td>
+            <td>10.2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 
 
 

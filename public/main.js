@@ -6,8 +6,10 @@ var loginPage = document.getElementById("Login"),
     gamePage = document.getElementById("Game"),
     myplayer;
 
+start();
+
 function start () {
- var name = document.getElementById("name").value;
+ var name = "asdf"//document.getElementById("name").value;
  socket.emit('Starting',name);
 }
 
