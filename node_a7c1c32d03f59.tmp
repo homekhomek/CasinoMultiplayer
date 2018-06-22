@@ -10,6 +10,7 @@ var io = require('socket.io')(server);
 var players = [];
 
 var lastSpin = Date.now();
+var spinning = false;
 
 var potTotal = 0;
 
@@ -58,28 +59,32 @@ console.log('User Connected');
   });
 
   socket.on('BetMore', function (bet) {
-    var player = getPlayerByID(socket.id);
-    if(player) {
-      if(!pot[player.username]) {
-        pot[player.username] = 0;
-      }
+    if(!spinning) {
+      var player = getPlayerByID(socket.id);
+      if(player) {
+        if(!pot[player.username]) {
+          pot[player.username] = 0;
+        }
 
-      if(player.money >= 100) {
-        player.money -= 100;
-        pot[player.username] += 100;
-        potTotal += 100;
-        sendOut();
+        if(player.money >= 100) {
+          player.money -= 100;
+          pot[player.username] += 100;
+          potTotal += 100;
+          sendOut();
+        }
       }
     }
   });
 
   socket.on('BetLess', function (bet) {
-    var player = getPlayerByID(socket.id);
-    if(pot[player.username] >= 100) {
-      player.money += 100;
-      pot[player.username] -= 100;
-      potTotal -= 100;
-      sendOut();
+    if(!spinning) {
+      var player = getPlayerByID(socket.id);
+      if(pot[player.username] >= 100) {
+        player.money += 100;
+        pot[player.username] -= 100;
+        potTotal -= 100;
+        sendOut();
+      }
     }
   });
 
@@ -100,6 +105,7 @@ console.log('User Connected');
 });
 
 function spin() {
+  spinning=true;
   var possibleArray = [];
   for(var property in pot) {
     if (pot.hasOwnProperty(property) ) {
@@ -118,8 +124,9 @@ function spin() {
     spinList.push({username: randomGuy, color: getColorByUsername(randomGuy)});
   }
 
-  var winner = spinList[100].username;
+  var winner = spinList[99].username;
 
+  console.log(winner);
 
   for(var i = 0; i < players.length;i++) {
     sendByID(players[i].id,"Spin",spinList);
@@ -133,6 +140,7 @@ function spin() {
         pot = {};
         potTotal = 0;
         sendOut();
+        spinning= false;
       }
     }
   }, 11000)
