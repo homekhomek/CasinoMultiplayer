@@ -18,10 +18,11 @@ function start () {
  socket.emit('Starting',name);
 }
 
-socket.on("You'reIn", function(player){
+socket.on("You'reIn", function(player, lastSpins){
   loginPage.style.display = "none";
   gamePage.style.display = "inline-block";
   myplayer = player;
+  lastSpin = Date.now() - lastSpins;
 });
 
 socket.on('Current', function(data){
