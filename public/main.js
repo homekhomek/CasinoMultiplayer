@@ -3,7 +3,8 @@ var socket = io.connect("http://141.126.155.58:7777");
 socket.emit('Joined',null);
 
 var loginPage = document.getElementById("Login"),
-    gamePage = document.getElementById("Game"),
+    gamePage = document.getElementById("slidecontent"),
+    navBar = document.getElementById("files"),
     players = [],
     pot = {},
     potTotal = 0,
@@ -20,12 +21,13 @@ function start () {
 
 socket.on("You'reIn", function(player, lastSpins){
   loginPage.style.display = "none";
-  gamePage.style.display = "inline-block";
+  gamePage.style.display = "block";
+  navBar.style.display = "block";
   myplayer = player;
   lastSpin = Date.now() - lastSpins;
 });
 
-socket.on('Current', function(data){
+socket.on('CurrentCasino', function(data){
   pot = data.pot;
   potTotal = data.total;
   myPlayer = data.myPlayer;
@@ -113,4 +115,17 @@ function spin(){
     document.getElementById("innerSpin").style.opacity = "0";
     document.getElementById("innerSpin").style.marginLeft = "0px";
   },10000);
+}
+
+function focuss(slide) {
+  if(slide == 1){
+    $("#slidecontent").css("margin-left", '0');
+    document.getElementById("file2").setAttribute("class", "");
+    document.getElementById("file1").setAttribute("class", "lifocused");
+  }
+ if(slide == 2){
+  $("#slidecontent").css("margin-left", '-100%');
+  document.getElementById("file1").setAttribute("class", "");
+  document.getElementById("file2").setAttribute("class", "lifocused");
+  }
 }

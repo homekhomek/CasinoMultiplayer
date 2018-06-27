@@ -1,3 +1,47 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 body, h1, h2, h3, h4, h5, h6, p {
   overflow:hidden;
   display: block;
@@ -11,12 +55,11 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 .Page {
   display: inline-block;
-  width: 100%;
+  width: calc(100% / 3);
   height: 100%;
 }
 
-#Game {
-  display:none;
+#Casino {
   margin-top: 10px;
 }
 
@@ -137,6 +180,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   border-radius: 5px;
   position: relative;
   margin: 10px auto;
+  cursor: pointer;
 }
 
 #bets {
@@ -189,7 +233,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: calc(100%/3);
   padding: 10px 0;
   text-align: center;
-  display: inline-table;
+  display: inline-block;
 }
 
 #winodds {
@@ -251,7 +295,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 #bets section *{
   display: inline;
-  margin: 30px;
+  margin: 7%;
 }
 
 #bets section p{
@@ -266,6 +310,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   padding: 10px 20px;
   font-family: 'Righteous', cursive;
   font-size: 20px;
+  cursor: pointer;
 }
 
 #subamt {
@@ -276,6 +321,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   padding: 10px 20px;
   font-family: 'Righteous', cursive;
   font-size: 20px;
+  cursor: pointer;
 }
 
 #loadBar {
@@ -296,4 +342,34 @@ body, h1, h2, h3, h4, h5, h6, p {
 #innerSpin {
   opacity: 0;
   transition: opacity .5s ease, margin-left 9.5s cubic-bezier(0,.54,0,1);
+}
+
+#slidecontent {
+  width: 300%;
+  margin: 0;
+  margin-left: 0;
+  transition: all 1s ease;
+  display: none;
+}
+
+#files {
+  display: none;
+}
+
+#files li{
+  display: inline-block;
+  padding: 10px 20px;
+  padding-bottom: 0;
+  background-color: white;
+  cursor: pointer;
+}
+
+.lifocused {
+  height: 30px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+nav hr {
+  margin-top: -1px;
 }

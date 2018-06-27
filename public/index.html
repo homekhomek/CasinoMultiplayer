@@ -12,73 +12,80 @@
     <input type="text" id ="name">Name </input>
     <button id="go" onclick="start()"> Start </button>
   </div>
-
-  <main id="Game" class="Page">
-    <div id="centerLine"></div>
-    <div id="spinner">
-      <div id="innerSpin">
-
-      </div>
-    </div><!--
-    --><div id="loadBar">
-      <div id="loadFill"></div>
-    </div>
-    <section id="cnt">
-      <div id="odds"> 
-        <p>Odds</p>
-        <div id="winodds">
-          <p id="bigwin">0%</p>
-          <p id="littlewin">You win!</p>
+  <nav id="files">
+    <ul>
+      <li id="file1" onclick="focuss(1)" class="lifocused">Casino</li>
+      <li id="file2" onclick="focuss(2)">Drugs</li>
+    </ul>
+    <hr>
+  </nav>
+  <div id="slidecontent">
+    <main id="Casino" class="Page">
+      <div id="centerLine"></div>
+      <div id="spinner">
+        <div id="innerSpin">
+  
         </div>
-        <div id="loseodds">
-          <p id="biglose">0%</p>
-          <p id="littlelose">You lose!</p>
+      </div><!--
+      --><div id="loadBar">
+        <div id="loadFill"></div>
+      </div>
+      <section id="cnt">
+        <div id="odds"> 
+          <p>Odds</p>
+          <div id="winodds">
+            <p id="bigwin">0%</p>
+            <p id="littlewin">You win!</p>
+          </div>
+          <div id="loseodds">
+            <p id="biglose">0%</p>
+            <p id="littlelose">You lose!</p>
+          </div>
         </div>
+        <div id="colors">
+          <p>Select a color</p>
+          <div id="c1" class="color" onclick="changeColor(1)"></div>
+          <div id="c2" class="color" onclick="changeColor(2)"></div>
+          <div id="c3" class="color" onclick="changeColor(3)"></div>
+          <div id="c4" class="color" onclick="changeColor(4)"></div>
+          <div id="c5" class="color" onclick="changeColor(5)"></div>
+          <div id="c6" class="color" onclick="changeColor(6)"></div>
+          <div id="c7" class="color" onclick="changeColor(7)"></div>
+          <div id="c8" class="color" onclick="changeColor(8)"></div>
+        </div>
+      <div id="bets">
+        <section>
+          <button id="addamt" onclick="betMore();">+$100</button>
+          <p>Put in pot</p>
+        </section>
+        <section>
+          <button id="subamt" onclick="betLess();">-$100</button>
+          <p>Take out of pot</p>
+        </section>
+        <p id="curramount">Your pot contribution: $0</p>
+        <p id="ammountyouhave">You have: $0</p>
       </div>
-      <div id="colors">
-        <p>Select a color</p>
-        <div id="c1" class="color" onclick="changeColor(1)"></div>
-        <div id="c2" class="color" onclick="changeColor(2)"></div>
-        <div id="c3" class="color" onclick="changeColor(3)"></div>
-        <div id="c4" class="color" onclick="changeColor(4)"></div>
-        <div id="c5" class="color" onclick="changeColor(5)"></div>
-        <div id="c6" class="color" onclick="changeColor(6)"></div>
-        <div id="c7" class="color" onclick="changeColor(7)"></div>
-        <div id="c8" class="color" onclick="changeColor(8)"></div>
-      </div>
-    </div>
-    <div id="bets">
-      <section>
-        <button id="addamt" onclick="betMore();">+$100</button>
-        <p>Put in pot</p>
+      <div id="players">
+        <p>People in pot</p>
+        <table>
+          <tbody id="tbodusers">
+            
+          </tbody>
+        </table>
       </section>
-      <section>
-        <button id="subamt" onclick="betLess();">-$100</button>
-        <p>Take out of pot</p>
+      <section id="sndrow">
+        <div id="allplayers">
+  
+        </div>
+        <div>
+  
+        </div>
       </section>
-      <p id="curramount">Your pot contribution: $0</p>
-      <p id="ammountyouhave">You have: $0</p>
-    </div>
-    <div id="players">
-      <p>People in pot</p>
-      <table>
-        <tbody id="tbodusers">
-          
-        </tbody>
-      </table>
-    </section>
-    <section id="sndrow">
-      <div id="allplayers">
+    </main>
+    <main id="drugs">
 
-      </div>
-      <div>
-
-      </div>
-    </section>
-  </main>
-
-
-
+    </main>
+  </div>
 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
