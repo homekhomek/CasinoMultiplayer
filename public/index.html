@@ -82,8 +82,38 @@
         </div>
       </section>
     </main>
-    <main id="drugs">
-
+    <main id="Drugs" class="Page">
+      <div id="runs">
+        <p>Runs</p>
+        <div id="runsHere">
+          
+        </div>
+      </div>
+      <div id="orders">
+        Type:
+        <select id="drugType" onchange="calculateDrug()">
+          <option value="weed">Pot</option>
+          <option value="meth">Speed</option>
+          <option value="coke">Snow</option>
+          <option value="heroin">Tar</option>
+        </select><br>
+        From:
+        <select id="fromPlace" onchange="calculateDrug()">
+          <option value="america">America</option>
+          <option value="canada">Canada</option>
+          <option value="mexico">Mexico</option>
+          <option value="china">China</option>
+        </select><br>
+        Amount: (kg)
+        <input type="number" id="drugsAmount" name="amount"
+           placeholder="Whole numbers only" onchange="calculateDrug()"/><br>
+        <div id="outputDrugs" >
+          Payout for you: $0<br>
+          Payout for runner: $0<br>
+          Risk for runner: 0%<br>
+        </div>
+        <button id="createOrder" onclick="createOrder();">Create</button>
+      </div>
     </main>
   </div>
 

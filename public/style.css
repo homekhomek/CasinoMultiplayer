@@ -63,6 +63,10 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin-top: 10px;
 }
 
+#Drugs {
+  display: inline-block;
+}
+
 #c1 {
   background-color: #912556;
 }
@@ -372,4 +376,30 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 nav hr {
   margin-top: -1px;
+}
+
+#runs  {
+  width: calc(65%);
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #ddd;
+  height: 600px;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+#runs p{
+  background-color: #ddd;
+  font-size: 30px;
+  padding: 10px;
+}
+
+#orders  {
+  width: calc(30%);
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #ddd;
+  height: 600px;
+  vertical-align: top;
+  margin: 0 10px;
 }

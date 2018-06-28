@@ -1,4 +1,4 @@
-var socket = io.connect("http://141.126.155.58:7777");
+var socket = io.connect("http://localhost:7777");
 
 socket.emit('Joined',null);
 
@@ -6,6 +6,7 @@ var loginPage = document.getElementById("Login"),
     gamePage = document.getElementById("slidecontent"),
     navBar = document.getElementById("files"),
     players = [],
+    orders = [],
     pot = {},
     potTotal = 0,
     myPlayer = {},
@@ -39,6 +40,13 @@ socket.on('CurrentCasino', function(data){
   generatePotList();
 });
 
+socket.on('CurrentDrugs', function(data){
+  orders = data.orders;
+  myPlayer = data.myPlayer;
+  players = data.players;
+  generateOrdersList();
+});
+
 function betMore () {
   socket.emit('BetMore',"");
 }
@@ -66,6 +74,40 @@ function getMoneyInPot(username){
 
 function changeColor(num){
   socket.emit("Color", $("#c" + num + "").css("background-color"));
+}
+
+function generateOrdersList(){
+  var orderList = [];
+  for(i = 0; i < orders.length; i++){
+    if(orders[i].ordererId != myPlayer.id) {
+      orderList[i] = {
+        payout: orders[i].runnerPayout,
+        risk: orders[i].risk,
+        id: orders[i].ordererId
+      };
+    }
+  }
+
+  orderList.sort(function(a, b) {
+    return b.payout  - a.payout;
+  });
+
+  document.getElementById("runsHere").innerHTML = "";
+  for(i = 0; i < orderList.length; i++){
+    document.getElementById("runsHere").innerHTML += "<div class='runItem'>Payout: $" + orderList[i].payout + " Risk: %" + orderList[i].risk + " <button class='runButton' onclick='runOrder(" + orderList[i].id + ")'>RUN!</button></div>"
+  }
+}
+
+function createOrder() {
+  var fromPlaceEl = document.getElementById("fromPlace");
+  var drugPlace = fromPlaceEl.options[fromPlaceEl.selectedIndex].value;
+
+  var drugTypeEl = document.getElementById("drugType");
+  var drugType = drugTypeEl.options[drugTypeEl.selectedIndex].value;
+
+  var drugAmount = Math.floor(document.getElementById("drugsAmount").value);
+
+  socket.emit("CreateOrder", {drugType:drugType, drugAmount:drugAmount, drugPlace:drugPlace});
 }
 
 function generatePotList(){
@@ -127,5 +169,60 @@ function focuss(slide) {
   $("#slidecontent").css("margin-left", '-100%');
   document.getElementById("file1").setAttribute("class", "");
   document.getElementById("file2").setAttribute("class", "lifocused");
+  }
+}
+
+function calculateDrug() {
+  var fromPlaceEl = document.getElementById("fromPlace");
+  var drugPlace = fromPlaceEl.options[fromPlaceEl.selectedIndex].value;
+
+  var drugTypeEl = document.getElementById("drugType");
+  var drugType = drugTypeEl.options[drugTypeEl.selectedIndex].value;
+
+  var drugAmount = Math.floor(document.getElementById("drugsAmount").value);
+
+  var payout = priceFromDrug(drugType).cost;
+  var risk = priceFromDrug(drugType).risk;
+
+  payout *= drugAmount;
+  risk *= drugAmount;
+
+  payout *= multiplierFromCountry(drugPlace).cost;
+  risk *= multiplierFromCountry(drugPlace).risk;
+
+  var runnerPayout = Math.floor((payout/100)*.75) *100 ;
+  var orderPayout =Math.floor((payout/100)*.25) *100;
+
+  document.getElementById("outputDrugs").innerHTML = "Payout for you: $" + orderPayout + "<br>Payout for runner: $" + runnerPayout + "<br>Risk for runner: %" + risk.toFixed(2);
+
+}
+
+function priceFromDrug(drug) {
+  if( drug == "weed") {
+    return {cost:100, risk: .1};
+  }
+  else if (drug == "coke") {
+    return {cost:300, risk: .5};
+  }
+  else if (drug == "heroin") {
+    return {cost:600, risk: 1};
+  }
+  else if (drug == "meth") {
+    return {cost:1000, risk: 2};
+  }
+}
+
+function multiplierFromCountry(country) {
+  if( country == "america") {
+    return {cost:1, risk: 1};
+  }
+  else if (country == "canada") {
+    return {cost:2, risk: 1.5};
+  }
+  else if (country == "mexico") {
+    return {cost:3, risk: 4};
+  }
+  else if (country == "china") {
+    return {cost:8, risk: 10};
   }
 }
