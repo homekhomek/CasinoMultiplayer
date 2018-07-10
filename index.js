@@ -313,7 +313,7 @@ function getTaskByName(loc, name) {
   }
 }
 
-function buildWorld () {
+function buildWorld() {
   var currentLoc;
   for(var i = 0; i < loc.length; i++) {
     currentLoc = loc[i];

@@ -12,8 +12,6 @@ var loginPage = document.getElementById("Login"),
     myPlayer = {},
     potList = [],
     lastSpin = 0;
-  
-    
 
 function start () {
  var name = document.getElementById("name").value;
@@ -193,7 +191,7 @@ function calculateDrug() {
   var runnerPayout = Math.floor((payout/100)*.75) *100 ;
   var orderPayout =Math.floor((payout/100)*.25) *100;
 
-  document.getElementById("outputDrugs").innerHTML = "Payout for you: $" + orderPayout + "<br>Payout for runner: $" + runnerPayout + "<br>Risk for runner: %" + risk.toFixed(2);
+  document.getElementById("outputDrugs").innerHTML = "<p>Payout for you: $" + orderPayout + "</p><p>Payout for runner: $" + runnerPayout + "</p><p>Risk for runner: %" + risk.toFixed(2) + "</p>";
 
 }
 

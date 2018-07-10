@@ -90,27 +90,27 @@
         </div>
       </div>
       <div id="orders">
-        Type:
+        <p class="pcentered">Create a run</p>
+        <p>Type:</p>
         <select id="drugType" onchange="calculateDrug()">
           <option value="weed">Pot</option>
           <option value="meth">Speed</option>
           <option value="coke">Snow</option>
-          <option value="heroin">Tar</option>
+          <option value="heroin">Black Tar</option>
         </select><br>
-        From:
+        <p>From:</p>
         <select id="fromPlace" onchange="calculateDrug()">
           <option value="america">America</option>
           <option value="canada">Canada</option>
           <option value="mexico">Mexico</option>
           <option value="china">China</option>
         </select><br>
-        Amount: (kg)
-        <input type="number" id="drugsAmount" name="amount"
-           placeholder="Whole numbers only" onchange="calculateDrug()"/><br>
+        <p>Amount: (kg)</p>
+        <input type="number" id="drugsAmount" name="amount" min="0" step="1" placeholder="Whole numbers only" onchange="calculateDrug()"/><br>
         <div id="outputDrugs" >
-          Payout for you: $0<br>
-          Payout for runner: $0<br>
-          Risk for runner: 0%<br>
+          <p>Payout for you: $0</p>
+          <p>Payout for runner: $0</p>
+          <p>Risk for runner: 0%</p>
         </div>
         <button id="createOrder" onclick="createOrder();">Create</button>
       </div>

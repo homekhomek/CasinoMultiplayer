@@ -403,3 +403,52 @@ nav hr {
   vertical-align: top;
   margin: 0 10px;
 }
+
+#createOrder {
+  background-color: #00c12d;
+  border: 3px solid #00C12C;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#orders p {
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.pcentered {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  margin: 0 !important;
+}
+
+#orders p, #orders select, #orders button, #orders input {
+  margin: 5px 7%;
+}
+
+#orders select {
+  padding: 5px 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-family: 'Righteous', cursive;
+}
+
+#orders input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: 'Righteous', cursive;
+  padding: 5px 10px;
+}
+
+
+
+@media only screen and (max-width: 600px)  {
+  body {
+    background-color: red;
+  }
+}
