@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:7777");
+var socket = io.connect("http://141.126.155.58:7777");
 
 socket.emit('Joined',null);
 
@@ -94,7 +94,7 @@ function generateOrdersList(){
 
   document.getElementById("runsHere").innerHTML = "";
   for(i = 0; i < orderList.length; i++){
-    document.getElementById("runsHere").innerHTML += "<div class='runItem'>Payout: $" + orderList[i].payout + " Risk: %" + orderList[i].risk + " <button class='runButton' onclick='runOrder(" + orderList[i].id + ")'>RUN!</button></div>"
+    document.getElementById("runsHere").innerHTML += "<div class='runItem'><p>Payout: $" + orderList[i].payout + "</p><p>Risk: " + orderList[i].risk + "%</p><button class='runButton' onclick='runOrder(" + orderList[i].id + ")'>RUN!</button></div>"
   }
 }
 
@@ -195,7 +195,7 @@ function calculateDrug() {
   var runnerPayout = Math.floor((payout/100)*.75) *100 ;
   var orderPayout =Math.floor((payout/100)*.25) *100;
 
-  document.getElementById("outputDrugs").innerHTML = "<p>Payout for you: $" + orderPayout + "</p><p>Payout for runner: $" + runnerPayout + "</p><p>Risk for runner: %" + risk.toFixed(2) + "</p>";
+  document.getElementById("outputDrugs").innerHTML = "<p>Payout for you: $" + orderPayout + "</p><p>Payout for runner: $" + runnerPayout + "</p><p>Risk for runner: " + risk.toFixed(2) + " %</p>";
 
 }
 
