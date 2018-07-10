@@ -40,10 +40,30 @@ socket.on('CurrentCasino', function(data){
   generatePotList();
 });
 
+socket.on('Caught', function(data){
+  alert("You/your runner got CAUGHT!");
+});
+
 socket.on('CurrentDrugs', function(data){
+  if(data.myPlayer.running && !myPlayer.running) {
+    //look here lmao
+  }
+
   orders = data.orders;
   myPlayer = data.myPlayer;
   players = data.players;
+  if(myPlayer.hasOrder) {
+    console.log("hi");
+    var theButton = document.getElementById("createOrder");
+    theButton.onclick = deleteOrder;
+    theButton.style.backgroundColor = "#C03232";
+  }
+  else {
+    console.log("hi2");
+    var theButton = document.getElementById("createOrder");
+    theButton.onclick = createOrder;
+    theButton.style.backgroundColor = "#00c12d";
+  }
   generateOrdersList();
 });
 
@@ -79,11 +99,11 @@ function changeColor(num){
 function generateOrdersList(){
   var orderList = [];
   for(i = 0; i < orders.length; i++){
-    if(orders[i].ordererId != myPlayer.id) {
+    if(orders[i].ordererId != myPlayer.id && !orders[i].beingRan) {
       orderList[i] = {
         payout: orders[i].runnerPayout,
         risk: orders[i].risk,
-        id: orders[i].ordererId
+        id: orders[i].id
       };
     }
   }
@@ -108,6 +128,10 @@ function createOrder() {
   var drugAmount = Math.floor(document.getElementById("drugsAmount").value);
 
   socket.emit("CreateOrder", {drugType:drugType, drugAmount:drugAmount, drugPlace:drugPlace});
+}
+
+function deleteOrder() {
+  socket.emit("DeleteOrder","lmao");
 }
 
 function generatePotList(){
