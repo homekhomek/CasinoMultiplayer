@@ -127,8 +127,8 @@ console.log('User Connected');
       order.beingRan = true;
       sendOut("drugs");
       setTimeout(function() {
-        var theRoll = getRandomInt(0,1000);
-        if(theRoll <= order.risk) {
+        var theRoll = getRandomInt(0,10000);
+        if(theRoll <= order.risk*100) {
           player.money = Math.min(player.money, 1000);
           player.running = false;
           godfather.hasOrder = false;
@@ -140,6 +140,7 @@ console.log('User Connected');
             }
           }
           sendOut("drugs");
+          sendOut("players");
         }
         else {
           player.money += order.runnerPayout;
@@ -152,6 +153,7 @@ console.log('User Connected');
             }
           }
           sendOut("drugs");
+          sendOut("players");
         }
       },10000);
     }
@@ -272,7 +274,9 @@ function sendOut(type) {
     }
   }
   else if (type == "players") {
-    sendByID(players[i].id,"CurrentCasino",{players: players});
+    for(var i = 0; i < players.length;i++) {
+      sendByID(players[i].id,"Current",{myPlayer: players[i],  players: players});
+    }
   }
 }
 
@@ -346,32 +350,33 @@ function genKey() {
   return key;
 }
 
+
 function priceFromDrug(drug) {
   if( drug == "weed") {
-    return {cost:100, risk: .1};
+    return {cost:100, risk: .4};
   }
   else if (drug == "coke") {
-    return {cost:300, risk: .5};
+    return {cost:300, risk: 1.1};
   }
   else if (drug == "heroin") {
-    return {cost:600, risk: 1};
+    return {cost:600, risk: 2};
   }
   else if (drug == "meth") {
-    return {cost:1000, risk: 2};
+    return {cost:1000, risk: 3.8};
   }
 }
 
 function multiplierFromCountry(country) {
   if( country == "america") {
-    return {cost:1, risk: 1};
+    return {cost:1, risk: 3};
   }
   else if (country == "canada") {
-    return {cost:2, risk: 1.5};
+    return {cost:2, risk: 6};
   }
   else if (country == "mexico") {
-    return {cost:3, risk: 4};
+    return {cost:3, risk: 9};
   }
   else if (country == "china") {
-    return {cost:8, risk: 10};
+    return {cost:8, risk: 24};
   }
 }

@@ -237,31 +237,31 @@ function calculateDrug() {
 
 function priceFromDrug(drug) {
   if( drug == "weed") {
-    return {cost:100, risk: .1};
+    return {cost:100, risk: .4};
   }
   else if (drug == "coke") {
-    return {cost:300, risk: .5};
+    return {cost:300, risk: 1.1};
   }
   else if (drug == "heroin") {
-    return {cost:600, risk: 1};
+    return {cost:600, risk: 2};
   }
   else if (drug == "meth") {
-    return {cost:1000, risk: 2};
+    return {cost:1000, risk: 3.8};
   }
 }
 
 function multiplierFromCountry(country) {
   if( country == "america") {
-    return {cost:1, risk: 1};
+    return {cost:1, risk: 3};
   }
   else if (country == "canada") {
-    return {cost:2, risk: 1.5};
+    return {cost:2, risk: 6};
   }
   else if (country == "mexico") {
-    return {cost:3, risk: 4};
+    return {cost:3, risk: 9};
   }
   else if (country == "china") {
-    return {cost:8, risk: 10};
+    return {cost:8, risk: 24};
   }
 }
 
