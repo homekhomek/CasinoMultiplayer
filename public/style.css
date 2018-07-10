@@ -47,10 +47,11 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: block;
   margin:0;
   padding:0;
-  font-family: 'Righteous', cursive;
-  color: #000;
+  /*font-family: 'Righteous', cursive;*/
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #D7B78D;
 
-  background-color: #fff;
+  background-color: #0F0D0E;
 }
 
 .Page {
@@ -105,9 +106,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin-left: calc(50% - 5px);
   height: 75px;
   width: 3px;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  background-color: #fff;
+  background-color: #73131B;
 }
 
 .spinItem {
@@ -121,6 +120,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   text-align: center;
   border-left: 1px solid rgba(0, 0, 0, .5);
   font-size: 8px;
+  color: #0F0D0E;
 }
 
 .spinItem:first-child {
@@ -149,7 +149,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: 25%;
   display: inline-block;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -159,19 +159,19 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: 20%;
   display: inline-block;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
 }
 
 #colors p {
-  color: black;
+  color: #D7B78D;
   margin: 0;
   display: block;
   width: 100%;
   text-align: center;
-  background-color: #ddd;
+  background-color: #73131B;
   padding: 10px 0;
   text-transform: uppercase;
 }
@@ -180,7 +180,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: block;
   width: 50px;
   height: 50px;
-  border: 3px solid gray;
+  border: 3px solid #0F0D0E;
   border-radius: 5px;
   position: relative;
   margin: 10px auto;
@@ -191,7 +191,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: 25%;
   display: inline-block;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -201,7 +201,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: calc(100% - 70% - 95px);
   display: inline-block;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -209,7 +209,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 #players p {
   text-transform: uppercase;
-  background-color: #ddd;
+  background-color: #73131B;
   width: 100%;
   display: block;
   text-align: center;
@@ -245,7 +245,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: block;
   position: relative;
   margin: 10px auto;
-  border: 3px solid gray;
+  border: 3px solid #0F0D0E;
   border-radius: 5px;
 }
 
@@ -254,18 +254,18 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: block;
   position: relative;
   margin: 20px auto;
-  border: 3px solid gray;
+  border: 3px solid #0F0D0E;
   border-radius: 5px;
 }
 
 #odds p {
-  color: black;
+  color: #D7B78D;
   margin: 0;
   display: block;
   position: relative;
   width: 100%;
   text-align: center;
-  background-color: #ddd;
+  background-color: #73131B;
   padding: 10px 0;
   text-transform: uppercase;
 }
@@ -285,7 +285,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin: 30px auto;
   position: relative;
   text-align: center;
-  background-color: #ddd;
+  background-color: #73131B;
 }
 
 #ammountyouhave{
@@ -294,7 +294,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin: 30px auto;
   position: relative;
   text-align: center;
-  background-color: #ddd;
+  background-color: #73131B;
 }
 
 #bets section *{
@@ -303,7 +303,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 }
 
 #bets section p{
-  background-color: #ddd;
+  background-color: #73131B;
 }
 
 #addamt {
@@ -337,7 +337,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 #loadFill {
   height: 5px;
-  background-color: gray;
+  background-color: #73131B;
   width: 0;
   margin: 0;
   padding: 0;
@@ -364,14 +364,14 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: inline-block;
   padding: 10px 20px;
   padding-bottom: 0;
-  background-color: white;
+  background-color: #0F0D0E;
   cursor: pointer;
 }
 
 .lifocused {
   height: 30px;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
+  border-left: 1px solid #73131B;
+  border-right: 1px solid #73131B;
 }
 
 nav hr {
@@ -382,14 +382,14 @@ nav hr {
   width: calc(65%);
   display: inline-block;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
 }
 
 #runs p{
-  background-color: #ddd;
+  background-color: #73131B;
   font-size: 30px;
   padding: 10px;
 }
@@ -398,7 +398,7 @@ nav hr {
   width: calc(30%);
   display: inline-block;
   white-space: nowrap;
-  background-color: #ddd;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -417,7 +417,7 @@ nav hr {
 
 #orders p {
   padding: 10px 0;
-  background-color: #ddd;
+  background-color: #73131B;
 }
 
 .pcentered {
@@ -433,22 +433,23 @@ nav hr {
 
 #orders select {
   padding: 5px 10px;
-  border: 1px solid gray;
+  border: 1px solid #0F0D0E;
   border-radius: 5px;
   font-family: 'Righteous', cursive;
 }
 
 #orders input {
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #0F0D0E;
   font-family: 'Righteous', cursive;
   padding: 5px 10px;
 }
 
-
-
-@media only screen and (max-width: 600px)  {
-  body {
-    background-color: red;
-  }
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #73131B;
+  margin: 1em 0;
+  padding: 0; 
 }

@@ -1,4 +1,4 @@
-var socket = io.connect("http://192.168.1.130:7777");
+var socket = io.connect("http://localhost:7777");
 
 socket.emit('Joined',null);
 
@@ -11,7 +11,9 @@ var loginPage = document.getElementById("Login"),
     potTotal = 0,
     myPlayer = {},
     potList = [],
-    lastSpin = 0;
+    lastSpin = 0
+    perc = 0
+    invperc = 0;
 
 function start () {
  var name = document.getElementById("name").value;
@@ -32,7 +34,7 @@ socket.on('CurrentCasino', function(data){
   myPlayer = data.myPlayer;
   players = data.players;
   document.getElementById("bigwin").innerHTML = getPercent(myPlayer.username);
-  document.getElementById("biglose").innerHTML = "lol kys";
+  document.getElementById("biglose").innerHTML = invperc;
   document.getElementById("ammountyouhave").innerHTML = "You have $" + myPlayer.money;
   document.getElementById("curramount").innerHTML = "Your pot contribution: $" + getMoneyInPot(myPlayer.username);
   generatePotList();
@@ -126,7 +128,9 @@ function generatePotList(){
 }
 
 function getPercent(username) {
-  return potTotal != 0 ? ((getMoneyInPot(username) / potTotal) * 100).toFixed(2) + "%" : "0%";
+  perc = potTotal != 0 ? ((getMoneyInPot(username) / potTotal) * 100).toFixed(2) : 0;
+  invperc = (100-perc).toFixed(2) + "%";
+  return perc + "%";
 }
 
 setInterval(function(){
