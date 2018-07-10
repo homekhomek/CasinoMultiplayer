@@ -13,7 +13,8 @@ var loginPage = document.getElementById("Login"),
     potList = [],
     lastSpin = 0
     perc = 0
-    invperc = 0;
+    invperc = 0,
+    startRun = 0;
 
 function start () {
  var name = document.getElementById("name").value;
@@ -40,13 +41,24 @@ socket.on('CurrentCasino', function(data){
   generatePotList();
 });
 
+socket.on('Current', function(data){
+  myPlayer = data.myPlayer;
+  players = data.players;
+  document.getElementById("ammountyouhave").innerHTML = "You have $" + myPlayer.money;
+});
+
 socket.on('Caught', function(data){
   alert("You/your runner got CAUGHT!");
 });
 
 socket.on('CurrentDrugs', function(data){
   if(data.myPlayer.running && !myPlayer.running) {
-    //look here lmao
+    document.getElementById("loaderbar").style.transition = "margin-left 10s linear";
+    document.getElementById("loaderbar").style.marginLeft = "0";
+  }
+  else if(!data.myPlayer.running && myPlayer.running) {
+    document.getElementById("loaderbar").style.transition = "none";
+    document.getElementById("loaderbar").style.marginLeft = "-105%";
   }
 
   orders = data.orders;
@@ -114,7 +126,7 @@ function generateOrdersList(){
 
   document.getElementById("runsHere").innerHTML = "";
   for(i = 0; i < orderList.length; i++){
-    document.getElementById("runsHere").innerHTML += "<div class='runItem'><p>Payout: $" + orderList[i].payout + "</p><p>Risk: " + orderList[i].risk + "%</p><button class='runButton' onclick='runOrder(" + orderList[i].id + ")'>RUN!</button></div>"
+    document.getElementById("runsHere").innerHTML += "<div class='runItem'><p>Payout: $" + orderList[i].payout + "</p><p>Risk: " + orderList[i].risk + "%</p><button class='runButton' onclick='runOrder(\"" + orderList[i].id + "\")'>RUN!</button></div>"
   }
 }
 
@@ -252,3 +264,9 @@ function multiplierFromCountry(country) {
     return {cost:8, risk: 10};
   }
 }
+
+function runOrder(id){
+  socket.emit("Run", id);
+}
+
+

@@ -66,6 +66,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 #Drugs {
   display: inline-block;
+  vertical-align: top;
 }
 
 #c1 {
@@ -404,17 +405,6 @@ nav hr {
   margin: 0 10px;
 }
 
-#createOrder {
-  background-color: #00c12d;
-  border: 3px solid #00C12C;
-  color: white;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-family: inherit;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 #orders p {
   padding: 10px 0;
   background-color: #73131B;
@@ -483,4 +473,95 @@ hr {
 #Login {
   width: 100%;
   display: block;
+}
+
+#createOrder {
+  background-color: #00c12d;
+  border: 3px solid #00C12C;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.runItem {
+  margin: 0px 20px;
+  border-bottom: 1px solid #0F0D0E;
+}
+
+.runItem * {
+  margin: 10px;
+  display: inline-block;
+  font-size: 24px !important;
+  vertical-align: middle;
+  font-family: inherit;
+}
+
+.runItem button {
+  background-color: #00c12d;
+  border: 3px solid #00C12C;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#runsHere {
+  overflow-y: scroll;
+  height: 500px;
+}
+
+#runsHere::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+#runsHere::-webkit-scrollbar-thumb {
+  background-color: #D7B78D;
+  width: 5px;
+  border-radius: 5px;
+}
+
+#loader {
+  height: 10.5vh;
+  margin: 10px;
+  overflow: hidden;
+}
+
+#loader img {
+  height: 6vh;
+}
+
+#loader p {
+  display: block;
+}
+
+#loaderbar {
+  width:calc(100% - 10px);
+  height: 7vh;
+  margin-left: -105%;
+  display: inline-block;
+  background-color: #73131B;
+  transition: margin-left 10s linear;
+}
+
+#inner {
+  white-space: nowrap;
+}
+
+#gifstuff {
+  display: inline-block
+}
+
+#gifstuff * {
+  display: block;
+  margin-left: 5px;
+}
+
+#gifstuff p {
+  margin-left: 10px;
 }
