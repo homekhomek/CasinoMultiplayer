@@ -196,7 +196,7 @@ console.log('User Connected');
           potTotal -= pot[players[i].username];
 
         for(var i = 0; i< orders.length; i++) {
-          if(orders[i].ordererId == socket.id) {
+          if(orders[i].id == socket.id) {
             orders.splice(i,1);
           }
         }
