@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:7777");
+var socket = io.connect("http://192.168.1.130:7777");
 
 socket.emit('Joined',null);
 
