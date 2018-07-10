@@ -106,7 +106,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin-left: calc(50% - 5px);
   height: 75px;
   width: 3px;
-  background-color: #611016;
+  background-color: #73131B;
 }
 
 .spinItem {
@@ -149,7 +149,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: 25%;
   display: inline-block;
   white-space: nowrap;
-  background-color: #611016;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -159,7 +159,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: 20%;
   display: inline-block;
   white-space: nowrap;
-  background-color: #611016;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -171,7 +171,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: block;
   width: 100%;
   text-align: center;
-  background-color: #611016;
+  background-color: #73131B;
   padding: 10px 0;
   text-transform: uppercase;
 }
@@ -191,7 +191,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: 25%;
   display: inline-block;
   white-space: nowrap;
-  background-color: #611016;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -201,7 +201,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   width: calc(100% - 70% - 95px);
   display: inline-block;
   white-space: nowrap;
-  background-color: #611016;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -209,7 +209,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 #players p {
   text-transform: uppercase;
-  background-color: #611016;
+  background-color: #73131B;
   width: 100%;
   display: block;
   text-align: center;
@@ -265,7 +265,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   position: relative;
   width: 100%;
   text-align: center;
-  background-color: #611016;
+  background-color: #73131B;
   padding: 10px 0;
   text-transform: uppercase;
 }
@@ -285,7 +285,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin: 30px auto;
   position: relative;
   text-align: center;
-  background-color: #611016;
+  background-color: #73131B;
 }
 
 #ammountyouhave{
@@ -294,7 +294,7 @@ body, h1, h2, h3, h4, h5, h6, p {
   margin: 30px auto;
   position: relative;
   text-align: center;
-  background-color: #611016;
+  background-color: #73131B;
 }
 
 #bets section *{
@@ -303,7 +303,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 }
 
 #bets section p{
-  background-color: #611016;
+  background-color: #73131B;
 }
 
 #addamt {
@@ -337,7 +337,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 #loadFill {
   height: 5px;
-  background-color: #611016;
+  background-color: #73131B;
   width: 0;
   margin: 0;
   padding: 0;
@@ -370,8 +370,8 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 .lifocused {
   height: 30px;
-  border-left: 1px solid #611016;
-  border-right: 1px solid #611016;
+  border-left: 1px solid #73131B;
+  border-right: 1px solid #73131B;
 }
 
 nav hr {
@@ -382,14 +382,14 @@ nav hr {
   width: calc(65%);
   display: inline-block;
   white-space: nowrap;
-  background-color: #611016;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
 }
 
 #runs p{
-  background-color: #611016;
+  background-color: #73131B;
   font-size: 30px;
   padding: 10px;
 }
@@ -398,7 +398,7 @@ nav hr {
   width: calc(30%);
   display: inline-block;
   white-space: nowrap;
-  background-color: #611016;
+  background-color: #73131B;
   height: 600px;
   vertical-align: top;
   margin: 0 10px;
@@ -417,7 +417,7 @@ nav hr {
 
 #orders p {
   padding: 10px 0;
-  background-color: #611016;
+  background-color: #73131B;
 }
 
 .pcentered {
@@ -449,7 +449,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #611016;
+  border-top: 1px solid #73131B;
   margin: 1em 0;
   padding: 0; 
 }
@@ -461,7 +461,7 @@ hr {
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 20px;
-  color: #611016;
+  color: #73131B;
   display: block;
   margin: 0 auto;
   position: relative;
@@ -471,7 +471,7 @@ hr {
 #go {
   display: block;
   font-family: inherit;
-  background-color: #611016;
+  background-color: #73131B;
   border: none;
   color: #D7B78D;
   border-radius: 5px;
