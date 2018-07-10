@@ -103,7 +103,7 @@ console.log('User Connected');
         ordererId: socket.id,
         beingRan: false
       };
-      //player.hasOrder = true;
+      player.hasOrder = true;
       
 
       orders.push(order);

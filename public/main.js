@@ -69,12 +69,16 @@ socket.on('CurrentDrugs', function(data){
     var theButton = document.getElementById("createOrder");
     theButton.onclick = deleteOrder;
     theButton.style.backgroundColor = "#C03232";
+    theButton.style.borderColor = "#C03232";
+    theButton.innerText = "Delete Current";
   }
   else {
     console.log("hi2");
     var theButton = document.getElementById("createOrder");
     theButton.onclick = createOrder;
     theButton.style.backgroundColor = "#00c12d";
+    theButton.style.borderColor = "#00c12d";
+    theButton.innerText = "Create";
   }
   generateOrdersList();
 });
