@@ -37,6 +37,7 @@ socket.on('CurrentCasino', function(data){
   document.getElementById("bigwin").innerHTML = getPercent(myPlayer.username);
   document.getElementById("biglose").innerHTML = invperc;
   document.getElementById("ammountyouhave").innerHTML = "You have $" + myPlayer.money;
+  document.getElementById("currmoney").innerHTML = "You have $" + myPlayer.money;
   document.getElementById("curramount").innerHTML = "Your pot contribution: $" + getMoneyInPot(myPlayer.username);
   generatePotList();
 });
@@ -44,6 +45,7 @@ socket.on('CurrentCasino', function(data){
 socket.on('Current', function(data){
   myPlayer = data.myPlayer;
   players = data.players;
+  document.getElementById("currmoney").innerHTML = "You have $" + myPlayer.money;
   document.getElementById("ammountyouhave").innerHTML = "You have $" + myPlayer.money;
 });
 
@@ -64,6 +66,7 @@ socket.on('CurrentDrugs', function(data){
   orders = data.orders;
   myPlayer = data.myPlayer;
   players = data.players;
+  document.getElementById("currmoney").innerHTML = "You have $" + myPlayer.money;
   if(myPlayer.hasOrder) {
     console.log("hi");
     var theButton = document.getElementById("createOrder");
@@ -225,6 +228,7 @@ function calculateDrug() {
 
   var payout = priceFromDrug(drugType).cost;
   var risk = priceFromDrug(drugType).risk;
+  var productionCost = priceFromDrug(drugType).production;
 
   payout *= drugAmount;
   risk *= drugAmount;
@@ -235,22 +239,22 @@ function calculateDrug() {
   var runnerPayout = Math.floor((payout/100)*.75) *100 ;
   var orderPayout =Math.floor((payout/100)*.25) *100;
 
-  document.getElementById("outputDrugs").innerHTML = "<p>Payout for you: $" + orderPayout + "</p><p>Payout for runner: $" + runnerPayout + "</p><p>Risk for runner: " + risk.toFixed(2) + " %</p>";
+  document.getElementById("outputDrugs").innerHTML = "<p>Payout for you: $" + orderPayout + "</p><p>Payout for runner: $" + runnerPayout + "</p><p>Risk for runner: " + risk.toFixed(2) + " %</p><p>Production Cost(Flatrate): $" + productionCost + "</p>";
 
 }
 
 function priceFromDrug(drug) {
   if( drug == "weed") {
-    return {cost:100, risk: .4};
+    return {cost:100, risk: .4, production:100};
   }
   else if (drug == "coke") {
-    return {cost:300, risk: 1.1};
+    return {cost:300, risk: 1.1, production:200};
   }
   else if (drug == "heroin") {
-    return {cost:600, risk: 2};
+    return {cost:600, risk: 2, production:400};
   }
   else if (drug == "meth") {
-    return {cost:1000, risk: 3.8};
+    return {cost:1000, risk: 3.8, production:600};
   }
 }
 

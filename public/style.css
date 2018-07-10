@@ -380,13 +380,13 @@ nav hr {
 }
 
 #runs  {
-  width: calc(65%);
+  width: 65%;
   display: inline-block;
   white-space: nowrap;
   background-color: #73131B;
   height: 600px;
   vertical-align: top;
-  margin: 0 10px;
+  margin: 4px 10px;
 }
 
 #runs p{
@@ -396,7 +396,7 @@ nav hr {
 }
 
 #orders  {
-  width: calc(30%);
+  width: calc(100% - 65% - 50px);
   display: inline-block;
   white-space: nowrap;
   background-color: #73131B;
@@ -527,7 +527,6 @@ hr {
 }
 
 #loader {
-  height: 10.5vh;
   margin: 10px;
   overflow: hidden;
 }
@@ -564,4 +563,11 @@ hr {
 
 #gifstuff p {
   margin-left: 10px;
+}
+
+#currmoney {
+  position: absolute;
+  margin: 13px;
+  top: 0;
+  right: 0;
 }
