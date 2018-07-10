@@ -96,12 +96,10 @@ console.log('User Connected');
       var orderPayout =Math.floor((payout/100)*.25) *100;
 
       var order = {
-        id: genKey(),
         runnerPayout: runnerPayout,
         orderPayout: orderPayout,
         risk: risk.toFixed(2),
-        ordererId: socket.id,
-        beingRan: false
+        ordererId: socket.id
       };
       //player.hasOrder = true;
       
@@ -110,51 +108,6 @@ console.log('User Connected');
       sendOut("drugs");
     }
 
-  });
-
-  socket.on('Run', function (id) {
-    var player = getPlayerByID(socket.id);
-    var order = null;
-    for(var i = 0; i< orders.length; i++) {
-      if(orders[i].id == id) {
-        order = orders[i];
-      }
-    }
-    var godfather = getPlayerByID(order.ordererId);
-
-    if(order != null && !order.beingRan && !player.running) {
-      player.running = true;
-      order.beingRan = true;
-      sendOut("drugs");
-      setTimeout(function() {
-        var theRoll = getRandomInt(0,1000);
-        if(theRoll <= order.risk) {
-          player.money = Math.min(player.money, 1000);
-          player.running = false;
-          godfather.hasOrder = false;
-          sendByID(player.id,"Caught","get shit on");
-          sendByID(godfather.id,"Caught","get shit on");
-          for(var i = 0; i< orders.length; i++) {
-            if(orders[i].id == id) {
-              orders.splice(i,1);
-            }
-          }
-          sendOut("drugs");
-        }
-        else {
-          player.money += order.runnerPayout;
-          godfather.money += order.orderPayout;
-          player.running = false;
-          godfather.hasOrder = false;
-          for(var i = 0; i< orders.length; i++) {
-            if(orders[i].id == id) {
-              orders.splice(i,1);
-            }
-          }
-          sendOut("drugs");
-        }
-      },10000);
-    }
   });
 
   socket.on('BetMore', function (bet) {
@@ -255,8 +208,7 @@ function newPlayer (id, name) {
     type: "player",
     money: 1000,
     color: "#ddd",
-    hasOrder: false,
-    running: false
+    hasOrder: false
   };
 }
 
