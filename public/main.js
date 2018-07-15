@@ -1,4 +1,4 @@
-var socket = io.connect("http://141.126.155.58:7777");
+var socket = io.connect("http://localhost:7777");
 
 socket.emit('Joined',null);
 
@@ -208,13 +208,21 @@ function focuss(slide) {
   if(slide == 1){
     $("#slidecontent").css("margin-left", '0');
     document.getElementById("file2").setAttribute("class", "");
+    document.getElementById("file3").setAttribute("class", "");
     document.getElementById("file1").setAttribute("class", "lifocused");
   }
  if(slide == 2){
   $("#slidecontent").css("margin-left", '-100%');
   document.getElementById("file1").setAttribute("class", "");
+  document.getElementById("file3").setAttribute("class", "");
   document.getElementById("file2").setAttribute("class", "lifocused");
   }
+  if(slide == 3){
+    $("#slidecontent").css("margin-left", '-200%');
+    document.getElementById("file1").setAttribute("class", "");
+    document.getElementById("file2").setAttribute("class", "");
+    document.getElementById("file3").setAttribute("class", "lifocused");
+    }
 }
 
 function calculateDrug() {
