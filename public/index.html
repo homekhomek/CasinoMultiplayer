@@ -5,6 +5,7 @@
   <title>...</title>
   <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 </head>
@@ -129,9 +130,19 @@
       </div>
     </main>
   </div>
+  <div id="mydiv">
+    <div id="mydivheader">In-Game Chat</div>
+    <div id="toggleopacity" onclick="toggleopacity()"><i class="fa fa-circle" aria-hidden="true"></i></div>
+    <div id="chat">
+    </div>
+    <div id="textarea">
+      <input type="text" placeholder="Type your message..." id="textmsg"><!--
+      --><button id="sendchat" onclick="sendchat()">Send</button>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <script src="main.js"></script>

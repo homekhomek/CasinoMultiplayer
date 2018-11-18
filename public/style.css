@@ -558,6 +558,7 @@ hr {
 
 #gifstuff * {
   display: block;
+  display: block;
   margin-left: 5px;
 }
 
@@ -570,4 +571,106 @@ hr {
   margin: 13px;
   top: 0;
   right: 0;
+}
+
+#mydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: black;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 20px 3px rgba(10,10,10,0.75);
+  -moz-box-shadow: 0px 0px 20px 3px rgba(10,10,10,0.75);
+  box-shadow: 0px 0px 20px 3px rgba(10,10,10,0.75);
+  display: none;
+  top: 50%;
+  left: 80px;
+}
+
+#mydivheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #73131B;
+}
+
+#chat {
+  width: 330px;
+  height: 200px;
+  background-color: black;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+#textarea {
+  white-space: nowrap;
+  width: 100%;
+}
+
+#textmsg {
+  width: calc(70% - 21px);
+  background-color: #73131B;
+  margin: 0;
+  padding: 10px;
+  border: none;
+  color: #D7B78D;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+}
+
+#sendchat {
+  width: 30%;
+  margin: 0;
+  background-color: #73131B;
+  border: none;
+  color: #D7B78D;
+  padding: 10px 0;
+  border-top: 1px solid white;
+  cursor: pointer;
+}
+
+#textmsg::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #D7B78D;
+}
+#textmsg::-moz-placeholder { /* Firefox 19+ */
+  color: #D7B78D;
+}
+#textmsg:-ms-input-placeholder { /* IE 10+ */
+  color: #D7B78D;
+}
+#textmsg:-moz-placeholder { /* Firefox 18- */
+  color: #D7B78D;
+}
+
+#toggleopacity {
+  position: absolute; 
+  right: 9px;
+  top: 9px;
+  cursor: pointer;
+}
+
+.mychat {
+  color: rgb(129, 27, 36);
+  padding: 5px 0;
+  text-align: left;
+}
+
+.notmychat {
+  color: #D7B78D;
+  text-align: left;
+  padding: 5px 0;
+}
+
+#chat::-webkit-scrollbar-button{ 
+  display: none; 
+} 
+#chat::-webkit-scrollbar-thumb{ 
+  background-color: #73131B; 
+  border-radius: 5px;
+} 
+#chat::-webkit-scrollbar-track{ 
+  background-color: transparent; 
+} 
+#chat::-webkit-scrollbar{ 
+  width: 5px; 
 }

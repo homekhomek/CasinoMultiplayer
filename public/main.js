@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:7777");
+var socket = io.connect("http://141.126.155.58:7777");
 
 socket.emit('Joined',null);
 
@@ -14,7 +14,8 @@ var loginPage = document.getElementById("Login"),
     lastSpin = 0
     perc = 0
     invperc = 0,
-    startRun = 0;
+    startRun = 0,
+    opaque = true;
 
 function start () {
  var name = document.getElementById("name").value;
@@ -25,7 +26,9 @@ socket.on("You'reIn", function(player, lastSpins){
   loginPage.style.display = "none";
   gamePage.style.display = "block";
   navBar.style.display = "block";
+  document.getElementById("mydiv").style.display = "block";
   myplayer = player;
+  sessionStorage.setItem("username", myplayer.username);
   lastSpin = Date.now() - lastSpins;
 });
 
@@ -68,7 +71,6 @@ socket.on('CurrentDrugs', function(data){
   players = data.players;
   document.getElementById("currmoney").innerHTML = "You have $" + myPlayer.money;
   if(myPlayer.hasOrder) {
-    console.log("hi");
     var theButton = document.getElementById("createOrder");
     theButton.onclick = deleteOrder;
     theButton.style.backgroundColor = "#C03232";
@@ -76,7 +78,6 @@ socket.on('CurrentDrugs', function(data){
     theButton.innerText = "Delete Current";
   }
   else {
-    console.log("hi2");
     var theButton = document.getElementById("createOrder");
     theButton.onclick = createOrder;
     theButton.style.backgroundColor = "#00c12d";
@@ -285,4 +286,64 @@ function runOrder(id){
   socket.emit("Run", id);
 }
 
+dragElement(document.getElementById("mydiv"));
 
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+function toggleopacity() {
+  if(opaque){
+    document.getElementById("toggleopacity").innerHTML = "<i class='fa fa-adjust' aria-hidden='true'></i>";
+    document.getElementById("mydiv").style.opacity = ".25"; 
+  }
+  else {
+    document.getElementById("toggleopacity").innerHTML = "<i class='fa fa-circle' aria-hidden='true'></i>";
+    document.getElementById("mydiv").style.opacity = "1"; 
+  }
+  opaque = !opaque;
+}
+
+function sendchat() {
+  socket.emit("Chat", $("#textmsg").val());
+}
+
+socket.on("NewChat", function(username, message){
+  if(username == sessionStorage.getItem("username")){
+    document.getElementById("chat").innerHTML += "<div class='mychat'>" + username + ": " + message + "</div>";
+  }
+  else {
+    document.getElementById("chat").innerHTML += "<div class='notmychat'>" + username + ": " + message + "</div>";
+  };
+  document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
+});
