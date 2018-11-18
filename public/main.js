@@ -336,6 +336,7 @@ function toggleopacity() {
 
 function sendchat() {
   socket.emit("Chat", $("#textmsg").val());
+  $("#textmsg").val("");
 }
 
 socket.on("NewChat", function(username, message){
