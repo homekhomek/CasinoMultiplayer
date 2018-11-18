@@ -1,5 +1,5 @@
 // Setup basic express server
-var debug = true;
+var debug = false;
 
 var port = debug ? 7777 : 27016;
 
@@ -112,13 +112,6 @@ console.log('User Connected');
 
   });
 
-  socket.on('Chat', function (msg) {
-    var player = getPlayerByID(socket.id);
-    console.log(msg);
-
-    sendOutMsg(player.username, msg);
-  });
-
   socket.on('Run', function (id) {
     var player = getPlayerByID(socket.id);
     var order = null;
@@ -202,17 +195,15 @@ console.log('User Connected');
         if(pot[players[i].username])
           potTotal -= pot[players[i].username];
 
-        for(var u = 0; i< orders.length; u++) {
-          if(orders[u].ordererId == socket.id) {
-            orders.splice(u,1);
+        for(var i = 0; i< orders.length; i++) {
+          if(orders[i].ordererId == socket.id) {
+            orders.splice(i,1);
           }
         }
 
         pot[players[i].username] = 0;
         io.emit("Rip", players[i].id);
-        console.log(players);
         players.splice(i,1);
-        console.log(players);
         sendOut("casino");
         sendOut("drugs");
         sendOut("players");
@@ -282,29 +273,16 @@ function newPlayer (id, name) {
 function sendOut(type) {
   if(type == "casino") {
     for(var i = 0; i < players.length;i++) {
-      if(io.sockets.connected[players[i].id]) {
-        sendByID(players[i].id,"CurrentCasino",{myPlayer: players[i], pot: pot, total: potTotal, players: players});
-      }
+      sendByID(players[i].id,"CurrentCasino",{myPlayer: players[i], pot: pot, total: potTotal, players: players});
     }
   }
   else if (type == "drugs") {
     for(var i = 0; i < players.length;i++) {
-      if(io.sockets.connected[players[i].id]) {
-        sendByID(players[i].id,"CurrentDrugs",{myPlayer: players[i], orders: orders, players: players});
-      }
-
+      sendByID(players[i].id,"CurrentDrugs",{myPlayer: players[i], orders: orders, players: players});
     }
   }
   for(var i = 0; i < players.length;i++) {
-    if(io.sockets.connected[players[i].id]) {
-      sendByID(players[i].id,"Current",{myPlayer: players[i],  players: players});
-    }
-  }
-}
-
-function sendOutMsg(name, msg) {
-  for(var i = 0; i < players.length;i++) {
-    io.sockets.connected[players[i].id].emit('NewChat',name, msg);
+    sendByID(players[i].id,"Current",{myPlayer: players[i],  players: players});
   }
 }
 
