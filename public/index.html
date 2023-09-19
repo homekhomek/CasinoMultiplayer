@@ -1,150 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>...</title>
-  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
-</head>
-<body>
-  <div id="Login" class="Page">
-    <input type="text" id="name" placeholder="Username">
-    <button id="go" onclick="start()"> Start </button>
-  </div>
-  <nav id="files">
-    <ul>
-      <li id="file1" onclick="focuss(1)" class="lifocused">Casino</li>
-      <li id="file2" onclick="focuss(2)">Drugs</li>
-      <li id="file3" onclick="focuss(3)">Gun Deals</li>
-    </ul>
-    <p id="currmoney">You have 100$</p>
-    <hr>
-  </nav>
-  <div id="slidecontent">
-    <main id="Casino" class="Page">
-      <div id="centerLine"></div>
-      <div id="spinner">
-        <div id="innerSpin">
-  
-        </div>
-      </div><!--
-      --><div id="loadBar">
-        <div id="loadFill"></div>
-      </div>
-      <section id="cnt">
-        <div id="odds"> 
-          <p>Odds</p>
-          <div id="winodds">
-            <p id="bigwin">0%</p>
-            <p id="littlewin">You win!</p>
-          </div>
-          <div id="loseodds">
-            <p id="biglose">0%</p>
-            <p id="littlelose">You lose!</p>
-          </div>
-        </div>
-        <div id="colors">
-          <p>Select a color</p>
-          <div id="c1" class="color" onclick="changeColor(1)"></div>
-          <div id="c2" class="color" onclick="changeColor(2)"></div>
-          <div id="c3" class="color" onclick="changeColor(3)"></div>
-          <div id="c4" class="color" onclick="changeColor(4)"></div>
-          <div id="c5" class="color" onclick="changeColor(5)"></div>
-          <div id="c6" class="color" onclick="changeColor(6)"></div>
-          <div id="c7" class="color" onclick="changeColor(7)"></div>
-          <div id="c8" class="color" onclick="changeColor(8)"></div>
-        </div>
-      <div id="bets">
-        <section>
-          <button id="addamt" onclick="betMore();">+$100</button>
-          <p>Put in pot</p>
+    <head>
+        <meta charset="UTF-8">
+        <title>Brennan's Recipe Book</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="h1T">Brennan's Recipe Book</h1>
+        <section class="slide" id="slide1">
+            <div id="numCont">
+                <input type="number" placeholder="How many days are you planning for?" id="dayI"><!--
+                --><button onclick="daySlide()" id="daySlide">Go</button>
+            </div>
         </section>
-        <section>
-          <button id="subamt" onclick="betLess();">-$100</button>
-          <p>Take out of pot</p>
-        </section>
-        <p id="curramount">Your pot contribution: $0</p>
-        <p id="ammountyouhave">You have: $0</p>
-      </div>
-      <div id="players">
-        <p>People in pot</p>
-        <table>
-          <tbody id="tbodusers">
-            
-          </tbody>
-        </table>
-      </section>
-      <section id="sndrow">
-        <div id="allplayers">
-  
-        </div>
-        <div>
-  
-        </div>
-      </section>
-    </main>
-    <main id="Drugs" class="Page">
-      <section id="loader">
-        <div id="inner">
-          <div id="loaderbar"></div>
-          <div id="gifstuff">
-            <img src="avatars/running.gif">
-            <p>Running</p>
-          </div>
-        </div>
-      </section>
-      <div id="runs">
-        <p>Runs</p>
-        <div id="runsHere">
-          
-        </div>
-      </div>
-      <div id="orders">
-        <p class="pcentered">Create a run</p>
-        <p>Type:</p>
-        <select id="drugType" onchange="calculateDrug()">
-          <option value="weed">Pot</option>
-          <option value="meth">Speed</option>
-          <option value="coke">Snow</option>
-          <option value="heroin">Black Tar</option>
-        </select><br>
-        <p>From:</p>
-        <select id="fromPlace" onchange="calculateDrug()">
-          <option value="america">America</option>
-          <option value="canada">Canada</option>
-          <option value="mexico">Mexico</option>
-          <option value="china">China</option>
-        </select><br>
-        <p>Amount: (kg)</p>
-        <input type="number" id="drugsAmount" name="amount" min="0" step="1" placeholder="Whole numbers only" onchange="calculateDrug()"/><br>
-        <div id="outputDrugs" >
-          <p>Payout for you: $0</p>
-          <p>Payout for runner: $0</p>
-          <p>Risk for runner: 0%</p>
-          <p>Production cost(Flatrate): $0</p>
-        </div>
-        <button id="createOrder" onclick="createOrder();">Create</button>
-      </div>
-    </main>
-  </div>
-  <div id="mydiv">
-    <div id="mydivheader">In-Game Chat</div>
-    <div id="toggleopacity" onclick="toggleopacity()"><i class="fa fa-circle" aria-hidden="true"></i></div>
-    <div id="chat">
-    </div>
-    <div id="textarea">
-      <input type="text" placeholder="Type your message..." id="textmsg"><!--
-      --><button id="sendchat" onclick="sendchat()">Send</button>
-    </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
-  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <script src="main.js"></script>
-</body>
+        
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>
