@@ -1,12 +1,5 @@
 var socket = io.connect("http://127.0.0.1:7777");
 
-<<<<<<< HEAD
-function daySlide(){
-    document.getElementById("h1T").style.paddingTop = "3vh";
-    document.getElementById("h1T").style.margin = "0 3vh";
-    document.getElementById("h1T").style.fontSize = "36px";
-}
-=======
 socket.emit('Joined',null);
 
 var loginPage = document.getElementById("Login"),
@@ -354,4 +347,3 @@ socket.on("NewChat", function(username, message){
   };
   document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
 });
->>>>>>> parent of 90cf56c (Minor chat fix)

@@ -1,11 +1,3 @@
-/* COLOR PALETTE
-Gunmetal - #292F36
-Platinum - #DADDD8
-Bittersweet - #EF5B5B
-Celestial Blue - #4D9DE0
-*/
-
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -33,10 +25,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    background-color: #292F36;
-    color: #DADDD8;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: lighter;
 }
 ol, ul {
 	list-style: none;
@@ -59,54 +47,630 @@ body, h1, h2, h3, h4, h5, h6, p {
   display: block;
   margin:0;
   padding:0;
+  /*font-family: 'Righteous', cursive;*/
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #D7B78D;
+
+  background-color: #0F0D0E;
 }
 
-#h1T {
-    font-size: 72px;
-    display: table;
-    padding-top: 25vh;
-    margin: 0 auto;
+.Page {
+  display: inline-block;
+  width: calc(100% / 3);
+  height: 100%;
+}
+
+#Casino {
+  margin-top: 10px;
+}
+
+#Drugs {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#c1 {
+  background-color: #912556;
+}
+
+#c2 {
+    background-color: #B94AB9;
+  }
+  
+  #c3 {
+    background-color: #C03232;
+  }
+  
+  #c4 {
+    background-color: #4452B9;
+  }
+  
+  #c5 {
+    background-color: #00a7c1;
+  }
+  
+  #c6 {
+    background-color: #00c12d;
+  }
+  
+  #c7 {
+    background-color: #a6b200;
+  }
+  
+  #c8 {
+    background-color: #efefef;
+  }
+  
+  #centerLine {
     position: absolute;
-    left: 0;
-    right: 0;
-    transition: all .5s ease;
-}
+    float: left;
+    margin-left: calc(50% - 5px);
+    height: 75px;
+    width: 3px;
+    background-color: #73131B;
+  }
 
-.slide {
-    width:100%;
-    height: 100vh;
+  .spinItem {
+    position: relative;
+    z-index: -10;
+    height: 75px;
+    width: 74px;
+    display: inline-block;
+    background-color: transparent;
+    line-height: 37px;
+    text-align: center;
+    border-left: 1px solid rgba(0, 0, 0, .5);
+    font-size: 8px;
+    color: #0F0D0E;
+  }
+  
+  .spinItem:first-child {
+    margin-left: -1466.5px;
+  }
+  
+  #spinner {
+    z-index: -100;
+    height: 75px;
+    font-size: 100%;
+    padding-left: 45%;
+    margin-left: 5%;
+    width: 45%;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-box-shadow: inset 0px 0px 15px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 15px 3px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 15px 3px rgba(0,0,0,0.75);
+  }
+  #cnt {
+    margin: 10px;
+    white-space: nowrap;
+  }
+
+  #odds{ 
+    width: 25%;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #73131B;
+    height: 600px;
+    vertical-align: top;
+    margin: 0 10px;
+  }
+  
+  #colors{
+    width: 20%;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #73131B;
+    height: 600px;
+    vertical-align: top;
+    margin: 0 10px;
+  }
+  
+  #colors p {
+    color: #D7B78D;
+    margin: 0;
     display: block;
-}
-
-#dayI {
-    border: 1px solid #EF5B5B;
-    background-color: rgba(255,255,255,.1);
-    width: 500px;
-    padding: 15px 20px;
-    font-size: 24px;
-    box-sizing: border-box;
-    color: #DADDD8;
-    margin: 0;
-}
-
-#dayI::placeholder {
-    color: #DADDD8;
-    font-weight: 300;
-}
-
-#daySlide {
-    background-color: #EF5B5B;
-    color: #DADDD8;
-    border: none;
-    margin: 0;
-    font-size: 24px;
-    padding: 16px 30px;
+    width: 100%;
+    text-align: center;
+    background-color: #73131B;
+    padding: 10px 0;
+    text-transform: uppercase;
+  }
+  
+  .color {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #0F0D0E;
+    border-radius: 5px;
+    position: relative;
+    margin: 10px auto;
     cursor: pointer;
-}
+  }
 
-#numCont {
-    display: table;
+  #bets {
+    width: 25%;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #73131B;
+    height: 600px;
+    vertical-align: top;
+    margin: 0 10px;
+  }
+  
+  #players {
+    width: calc(100% - 70% - 95px);
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #73131B;
+    height: 600px;
+    vertical-align: top;
+    margin: 0 10px;
+  }
+  
+  #players p {
+    text-transform: uppercase;
+    background-color: #73131B;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  #players table {
+    width: 80%;
+    display: block;
     position: relative;
     margin: 0 auto;
-    padding-top: 38vh;
-}
+  }
+  
+  #players table tbody {
+    width: 100%;
+    display: block;
+  }
+
+  #players table tbody tr {
+    width: 100%;
+    display: block;
+  }
+  
+  #players table tbody tr td {
+    width: calc(100%/3);
+    padding: 10px 0;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  #winodds {
+    width: 70%;
+    display: block;
+    position: relative;
+    margin: 10px auto;
+    border: 3px solid #0F0D0E;
+    border-radius: 5px;
+  }
+  
+  #loseodds {
+    width: 50%;
+    display: block;
+    position: relative;
+    margin: 20px auto;
+    border: 3px solid #0F0D0E;
+    border-radius: 5px;
+  }
+  
+  #odds p {
+    color: #D7B78D;
+    margin: 0;
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background-color: #73131B;
+    padding: 10px 0;
+    text-transform: uppercase;
+  }
+
+  #winodds p {
+    padding: 10px;
+    width: calc(100% - 20px);
+  }
+  
+  #bigwin, #biglose {
+    font-size: 40px;
+  }
+  
+  #curramount{
+    width: 80%;
+    display: block;
+    margin: 30px auto;
+    position: relative;
+    text-align: center;
+    background-color: #73131B;
+  }
+  
+  #ammountyouhave{
+    width: 80%;
+    display: block;
+    margin: 30px auto;
+    position: relative;
+    text-align: center;
+    background-color: #73131B;
+  }
+  
+  #bets section *{
+    display: inline;
+    margin: 7%;
+  }
+  
+  #bets section p{
+    background-color: #73131B;
+  }
+
+  #addamt {
+    background-color: #00c12d;
+    border: 3px solid #00C12C;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #subamt {
+    background-color: #C03232;
+    border: 3px solid #C03232;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #loadBar {
+    height: 5px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #loadFill {
+    height: 5px;
+    background-color: #73131B;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #innerSpin {
+    opacity: 0;
+    transition: opacity .5s ease, margin-left 9.5s cubic-bezier(0,.54,0,1);
+  }
+
+  #slidecontent {
+    width: 300%;
+    margin: 0;
+    margin-left: 0;
+    transition: all 1s ease;
+    display: none;
+  }
+  
+  #files {
+    display: none;
+  }
+  
+  #files li{
+    display: inline-block;
+    padding: 10px 20px;
+    padding-bottom: 0;
+    background-color: #0F0D0E;
+    cursor: pointer;
+  }
+  
+  .lifocused {
+    height: 30px;
+    border-left: 1px solid #73131B;
+    border-right: 1px solid #73131B;
+  }
+  
+  nav hr {
+    margin-top: -1px;
+  }
+  
+  #runs  {
+    width: 65%;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #73131B;
+    height: 600px;
+    vertical-align: top;
+    margin: 4px 10px;
+  }
+
+  #runs p{
+    background-color: #73131B;
+    font-size: 30px;
+    padding: 10px;
+  }
+  
+  #orders  {
+    width: calc(100% - 65% - 50px);
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #73131B;
+    height: 600px;
+    vertical-align: top;
+    margin: 4px 10px;
+  }
+  
+  #orders p {
+    padding: 10px 0;
+    background-color: #73131B;
+  }
+  
+  .pcentered {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 !important;
+  }
+  
+  #orders p, #orders select, #orders button, #orders input {
+    margin: 5px 7%;
+  }
+  
+  #orders select {
+    padding: 5px 10px;
+    border: 1px solid #0F0D0E;
+    border-radius: 5px;
+    font-family: inherit;
+  }
+
+  #orders input {
+    border-radius: 5px;
+    border: 1px solid #0F0D0E;
+    font-family: inherit;
+    padding: 5px 10px;
+  }
+  
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #73131B;
+    margin: 1em 0;
+    padding: 0; 
+  }
+  
+  #name{
+    font-family: inherit;
+    background-color: transparent;
+    border: 3px solid #D7B78D;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #73131B;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 40vh;
+  }
+  
+  #go {
+    display: block;
+    font-family: inherit;
+    background-color: #73131B;
+    border: none;
+    color: #D7B78D;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 30px auto;
+  }
+
+  #Login {
+    width: 100%;
+    display: block;
+  }
+  
+  #createOrder {
+    background-color: #00c12d;
+    border: 3px solid #00C12C;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .runItem {
+    margin: 0px 20px;
+    border-bottom: 1px solid #0F0D0E;
+  }
+  
+  .runItem * {
+    margin: 10px;
+    display: inline-block;
+    font-size: 24px !important;
+    vertical-align: middle;
+    font-family: inherit;
+  }
+  
+  .runItem button {
+    background-color: #00c12d;
+    border: 3px solid #00C12C;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  #runsHere {
+    overflow-y: scroll;
+    height: 500px;
+  }
+  
+  #runsHere::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+  }
+  
+  #runsHere::-webkit-scrollbar-thumb {
+    background-color: #D7B78D;
+    width: 5px;
+    border-radius: 5px;
+  }
+  
+  #loader {
+    margin: 10px;
+    overflow: hidden;
+  }
+  
+  #loader img {
+    height: 6vh;
+  }
+  
+  #loader p {
+    display: block;
+  }
+  
+  #loaderbar {
+    width:calc(100% - 10px);
+    height: 7vh;
+    margin-left: -105%;
+    display: inline-block;
+    background-color: #73131B;
+    transition: margin-left 10s linear;
+  }
+
+  #inner {
+    white-space: nowrap;
+  }
+  
+  #gifstuff {
+    display: inline-block
+  }
+  
+  #gifstuff * {
+    display: block;
+    display: block;
+    margin-left: 5px;
+  }
+  
+  #gifstuff p {
+    margin-left: 10px;
+  }
+  
+  #currmoney {
+    position: absolute;
+    margin: 13px;
+    top: 0;
+    right: 0;
+  }
+  
+  #mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: black;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 20px 3px rgba(10,10,10,0.75);
+    -moz-box-shadow: 0px 0px 20px 3px rgba(10,10,10,0.75);
+    box-shadow: 0px 0px 20px 3px rgba(10,10,10,0.75);
+    display: none;
+    top: 50%;
+    left: 80px;
+  }
+
+  #mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #73131B;
+  }
+  
+  #chat {
+    width: 330px;
+    height: 200px;
+    background-color: black;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+  
+  #textarea {
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  #textmsg {
+    width: calc(70% - 21px);
+    background-color: #73131B;
+    margin: 0;
+    padding: 10px;
+    border: none;
+    color: #D7B78D;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+  }
+  
+  #sendchat {
+    width: 30%;
+    margin: 0;
+    background-color: #73131B;
+    border: none;
+    color: #D7B78D;
+    padding: 10px 0;
+    border-top: 1px solid white;
+    cursor: pointer;
+  }
+  #textmsg::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #D7B78D;
+  }
+  #textmsg::-moz-placeholder { /* Firefox 19+ */
+    color: #D7B78D;
+  }
+  #textmsg:-ms-input-placeholder { /* IE 10+ */
+    color: #D7B78D;
+  }
+  #textmsg:-moz-placeholder { /* Firefox 18- */
+    color: #D7B78D;
+  }
+  
+  #toggleopacity {
+    position: absolute; 
+    right: 9px;
+    top: 9px;
+    cursor: pointer;
+  }
+  
+  .mychat {
+    color: rgb(129, 27, 36);
+    padding: 5px 0;
+    text-align: left;
+  }
+  
+  .notmychat {
+    color: #D7B78D;
+    text-align: left;
+    padding: 5px 0;
+  }
+  
+  #chat::-webkit-scrollbar-button{ 
+    display: none; 
+  } 
+  #chat::-webkit-scrollbar-thumb{ 
+    background-color: #73131B; 
+    border-radius: 5px;
+  } 
+  #chat::-webkit-scrollbar-track{ 
+    background-color: transparent; 
+  } 
+  #chat::-webkit-scrollbar{ 
+    width: 5px; 
+  }
+  
